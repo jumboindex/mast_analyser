@@ -60,6 +60,37 @@ class TestApp(unittest.TestCase):
         self.assertEqual(rent_four, result_rent_four)
         self.assertEqual(rent_five, result_rent_five)
 
+    def test_filter_by_lease_years(self):    
+
+        #setup
+        list_length = 4
+        lease_years = 25
+
+        #exercise
+        filtered_list = app.filter_by_lease_years()
+        filtered_list_length = len(filtered_list)
+
+        #test 
+        self.assertEqual(list_length, filtered_list_length)
+        self.assertEqual(filtered_list[0].lease_years, lease_years)
+        self.assertEqual(filtered_list[1].lease_years, lease_years)
+        self.assertEqual(filtered_list[2].lease_years, lease_years)
+        self.assertEqual(filtered_list[3].lease_years, lease_years)
+
+    def test_caculate_rent_total(self):
+
+        #setup
+        total = 46500
+
+        #exercise
+        #generate list 
+        app.filter_by_lease_years()
+        #calculate total
+        result = app.caluculate_total_rent()
+
+        #test
+        self.assertEqual(result, total)
+
 
 if __name__ == '__main__':
     unittest.main()
