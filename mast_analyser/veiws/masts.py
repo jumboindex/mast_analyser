@@ -32,7 +32,7 @@ class Masts:
 
         self.mast_filtered_by_lease_years = filtered_list      
         return filtered_list
-
+    # method for question 2b - returns rent toal for self.mast_filtered_by_lease_years 
     def calculate_rent_total(self):
         # attempted to use reduce to no avail :(
         # total = reduce(lambda accumulator, mast:  accumulator + mast.current_rent , filtered_list)
@@ -42,5 +42,21 @@ class Masts:
         total = sum(rent_list)
         print("Total rent for all items in list: {}".format(total))
         return total
+    # method for question 3a - returns a dictionary to console.
+    # data is not normalised and varations for tenant names exist. This could be resolved programmatically,
+    # but it would be wise to check with user as varience could be legetimate. In the real world I would get 
+    # the user to tidy up data at source or correct CSV - normalising data seems to be outside scope for question.
+    def get_masts_by_tenant(self):
+        tenants = dict()
+        for mast in self.mast_list:
+            if mast.tenant_name not in tenants.keys():
+                tenants[mast.tenant_name] = 1
+            else:
+                 tenants[mast.tenant_name] += 1
+        print(tenants)
+        return tenants            
+
+    
+
        
 

@@ -15,4 +15,7 @@ class App:
         return mast_list.filter_by_lease_years()
 
     def caluculate_total_rent(self):
-        return mast_list.calculate_rent_total()    
+        return mast_list.calculate_rent_total() 
+
+    def get_tenant_count(self):
+        return mast_list.get_masts_by_tenant()

@@ -10,7 +10,6 @@ data can updated to int / float.
 params: none
 returns: list of mast objects
 
-
 """
 def load_csv():
     working_directory = os.getcwd()

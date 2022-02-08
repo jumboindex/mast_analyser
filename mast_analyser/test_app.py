@@ -91,6 +91,33 @@ class TestApp(unittest.TestCase):
         #test
         self.assertEqual(result, total)
 
+    def test_get_tenant_count(self):
+
+        #setup
+        cornerstone_key = "Cornerstone Telecommunications Infrastructure"
+        cornerstone_count = 16
+        everything_anywhere_key = "Everything Everywhere Ltd"
+        everything_anywhere_count = 4
+        vodafone_key = "Vodafone Ltd."
+        vodafone_count = 1
+
+        #exercise 
+        result = app.get_tenant_count()    
+       
+        cornerstone_count_result = result[cornerstone_key]
+        everything_anywhere_result = result[everything_anywhere_key]
+        vodafone_result = result[vodafone_key]
+        list_of_keys = result.keys()
+
+        #test
+        self.assertIn(cornerstone_key, list_of_keys)
+        self.assertIn(everything_anywhere_key, list_of_keys)
+        self.assertIn(vodafone_key, list_of_keys)
+        self.assertEqual(cornerstone_count, cornerstone_count_result)
+        self.assertEqual(everything_anywhere_count, everything_anywhere_result)
+        self.assertEqual(vodafone_count, vodafone_result)
+
+
 
 if __name__ == '__main__':
     unittest.main()
