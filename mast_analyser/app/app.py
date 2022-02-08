@@ -19,3 +19,6 @@ class App:
 
     def get_tenant_count(self):
         return mast_list.get_masts_by_tenant()
+    
+    def get_masts_by_lease_range(self):
+        return mast_list.get_masts_by_lease_range()    

@@ -117,7 +117,23 @@ class TestApp(unittest.TestCase):
         self.assertEqual(everything_anywhere_count, everything_anywhere_result)
         self.assertEqual(vodafone_count, vodafone_result)
 
+    def test_get_masts_in_date_range(self):
+        
+        #setup
+        list_length = 5
+        first_lease_start_date = "24 06 1999"
+        last_lease_start_date = "21 08 2007"
 
+        #exercise 
+        result = app.get_masts_by_lease_range()
+        result_length = len(result)
+        result_first_lease_start_date = result[0].lease_start
+        result_last_lease_start_date = result[4].lease_start
+
+        #test 
+        self.assertEqual(list_length, result_length)
+        self.assertEqual(first_lease_start_date, result_first_lease_start_date)
+        self.assertEqual(last_lease_start_date, result_last_lease_start_date)
 
 if __name__ == '__main__':
     unittest.main()

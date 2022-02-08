@@ -11,3 +11,4 @@ mast_analyser.caluculate_total_rent()
 
 mast_analyser.get_tenant_count()
 
+mast_analyser.get_masts_by_lease_range()
