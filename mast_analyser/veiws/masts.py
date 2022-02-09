@@ -1,10 +1,11 @@
+from copy import deepcopy
 from datetime import datetime
 from pprint import pprint
 
 """
 constructor class for list of mast objects. 
 
-params: mast_list - list of mast objects
+params: mast_list - list of mast objects.
 
 methods for each question.
 
@@ -48,16 +49,18 @@ class Masts:
                 tenants[mast.tenant_name] += 1     
         return tenants
 
-    # method for question 4a - returns filtered list of mast objects with date in range, converts lease start to correct format
+    # method for question 4a - returnsa new filtered list of mast objects with date in range, converts lease start to correct format
     def get_masts_by_lease_range(self, start_date = '01 Jun 1999', end_date = '31 Aug 2007'):
-        # create a list of masts, converting date strings to datetime objects 
-        masts_filtered_by_date = [mast for mast in self.mast_list 
+        # deepcopy mast_list to avoid mutating orginal
+        mast_list = deepcopy(self.mast_list)
+        # create a list of masts, converting date strings to datetime objects
+        masts_filtered_by_date = [mast for mast in mast_list 
         if datetime.strptime(start_date, '%d %b %Y') <= datetime.strptime(mast.lease_start, '%d %b %Y' ) 
         if datetime.strptime(end_date, '%d %b %Y') >= datetime.strptime(mast.lease_start, '%d %b %Y') ]
         # format lease start date correctly for output
         for mast in masts_filtered_by_date:
             date_object = datetime.strptime(mast.lease_start, '%d %b %Y')
-            mast.lease_start = datetime.strftime(date_object, '%d %m %Y')
+            mast.lease_start = datetime.strftime(date_object, '%d %m %Y')            
         return masts_filtered_by_date
 
              

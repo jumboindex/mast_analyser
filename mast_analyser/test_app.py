@@ -85,8 +85,6 @@ class TestApp(unittest.TestCase):
         total = 46500
 
         #exercise
-        #generate list 
-        #app.filter_by_lease_years()
         #calculate total
         result = masts.calculate_rent_total()
 

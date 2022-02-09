@@ -15,8 +15,6 @@ def load_csv():
     working_directory = os.getcwd()
     path_to_csv = working_directory + "\mast_analyser\data\Python Developer Test Dataset.csv"
 
-    ##dirname = os.path.dirname(__file__)
-    ##path_to_csv_1 = dirname + "\data\Python Developer Test Dataset.csv"
     mast_list = []
     ## validate path
     path_valid = os.access(path_to_csv, os.R_OK)
@@ -38,7 +36,7 @@ def load_csv():
                                     mast['Current Rent'])
                     mast_list.append(new_mast)
 
-        return mast_list
+        return tuple(mast_list)
     else:
         raise Exception('file path is not valid!')                
 
