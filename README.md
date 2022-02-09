@@ -13,16 +13,18 @@
 
 Mast Analyser app for the bink technical test.
 
-output for all questions below:
+Output for all questions below:
 
 ![question output](./mast_analyser/data/output.PNG)
 
-usage: python app.py
-test: python test_app.py
+Usage: python app.py
+
+Test: python test_app.py
 
 User input via the command line to select questions and answers:
     input: 1a, 1b, 2a, 2b, 3a, 4a, all, exit.
-    output: answers, all answers or exit.
+
+Output: answers, all answers or exit.
 
 ## Technologies
 
