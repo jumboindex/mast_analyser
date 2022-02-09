@@ -15,7 +15,7 @@ Mast Analyser app for the bink technical test.
 
 output for all questions below:
 
-[![question output](./mast_analyser/data/output.png)(<https://github.com/jumboindex/mast_analyser/blob/main/mast_analyser/data/output.PNG>)]
+![question output](./mast_analyser/data/output.PNG)
 
 usage: python app.py
 test: python test_app.py
@@ -37,4 +37,4 @@ Project is: alpha v0.1
 
 test output below:
 
-[![test output](./mast_analyser/data/tests.png)(<https://github.com/jumboindex/mast_analyser/blob/main/mast_analyser/data/tests.PNG>)]
+![test output](./mast_analyser/data/tests.PNG)
