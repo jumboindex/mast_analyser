@@ -5,10 +5,10 @@ from veiws.mast_constructor import Mast
 """
 Read csv file relative to current directory and returns CSV class, 
 with each row being a dictionary. Create new mast object for each dictionary so 
-data can updated to int / float.
+data can be updated to int / float.
 
 params: none
-returns: list of mast objects
+returns: tuple of mast objects
 
 """
 def load_csv():

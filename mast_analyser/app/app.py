@@ -5,6 +5,12 @@ from pprint import pprint
 file = load_csv()
 mast_list = Masts(file)
 
+"""
+App contains all the print logic / user interaction via console.
+This has been created to separate concerns and could also be used to handle errors.
+
+"""
+
 class App:
 
     def sort_by_rent(self):
@@ -41,8 +47,8 @@ class App:
         for mast in masts_filtered_by_date]
 
     def run(self):
-        user_input = input("Please enter question number i.e. 1a, or all for all questions. Type exit to exit : ").strip().lower()
-        if user_input.lower() == "exit":
+        user_input = input("Please enter question number i.e. 1a, or all for all questions. Type exit to exit: ").strip().lower()
+        if user_input == "exit":
             exit()
         else:
             self.user_input(user_input)

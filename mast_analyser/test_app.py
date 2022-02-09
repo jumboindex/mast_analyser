@@ -7,6 +7,14 @@ masts = Masts(file)
 
 class TestApp(unittest.TestCase):
 
+    def test_load_csv(self):
+
+        #exercise - should throw Exception if file cannot be loaded.
+        file = load_csv()
+        # test file can be read and does not Exception('file path is not valid!') which unit test should catch.
+        # probably a better way to test?     
+        self.assertTrue
+
     def test_sort_by_rent(self):
         
         #setup
@@ -47,7 +55,7 @@ class TestApp(unittest.TestCase):
         #exercise
         top_five_masts = masts.rent_top_five()
         top_five_length = len(top_five_masts)
-
+        # grab rent values
         result_rent_one = top_five_masts[0].current_rent
         result_rent_two = top_five_masts[1].current_rent
         result_rent_three = top_five_masts[2].current_rent
@@ -72,7 +80,7 @@ class TestApp(unittest.TestCase):
         filtered_list = masts.filter_by_lease_years()
         filtered_list_length = len(filtered_list)
 
-        #test 
+        #test - check lease years = 25
         self.assertEqual(list_length, filtered_list_length)
         self.assertEqual(filtered_list[0].lease_years, lease_years)
         self.assertEqual(filtered_list[1].lease_years, lease_years)
@@ -88,7 +96,7 @@ class TestApp(unittest.TestCase):
         #calculate total
         result = masts.calculate_rent_total()
 
-        #test
+        #test - check total is correct
         self.assertEqual(result, total)
 
     def test_get_tenant_count(self):
@@ -109,7 +117,7 @@ class TestApp(unittest.TestCase):
         vodafone_result = result[vodafone_key]
         list_of_keys = result.keys()
 
-        #test
+        #test - check selection of values are in dict
         self.assertIn(cornerstone_key, list_of_keys)
         self.assertIn(everything_anywhere_key, list_of_keys)
         self.assertIn(vodafone_key, list_of_keys)
@@ -130,10 +138,11 @@ class TestApp(unittest.TestCase):
         result_first_lease_start_date = result[0].lease_start
         result_last_lease_start_date = result[4].lease_start
 
-        #test 
+        #test - check length and first / last date are correct
         self.assertEqual(list_length, result_length)
         self.assertEqual(first_lease_start_date, result_first_lease_start_date)
         self.assertEqual(last_lease_start_date, result_last_lease_start_date)
+
 
 if __name__ == '__main__':
     unittest.main()
