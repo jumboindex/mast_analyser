@@ -17,9 +17,9 @@ Output for all questions below:
 
 ![question output](./mast_analyser/data/output.PNG)
 
-Usage: python app.py
+Usage: python -m mast_analyser (in main directory)
 
-Test: python test_app.py
+Test: python test_app.py (in main directory)
 
 User input via the command line to select questions and answers:
     input: 1a, 1b, 2a, 2b, 3a, 4a, all, exit.
