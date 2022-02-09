@@ -1,7 +1,9 @@
 import unittest
-from app.app import App
+from veiws.masts import Masts
+from helpers.csv_reader import load_csv
 
-app = App()
+file = load_csv()
+masts = Masts(file)
 
 class TestApp(unittest.TestCase):
 
@@ -15,7 +17,7 @@ class TestApp(unittest.TestCase):
         second_lowest_rent = 9500.0
 
         #exercise
-        sorted_list = app.sort_by_rent()
+        sorted_list = masts.sort_by_rent()
         #check length
         sorted_list_length = len(sorted_list)
         # grab top two rent values
@@ -43,7 +45,7 @@ class TestApp(unittest.TestCase):
         rent_five = 17000.0
 
         #exercise
-        top_five_masts = app.rent_top_five()
+        top_five_masts = masts.rent_top_five()
         top_five_length = len(top_five_masts)
 
         result_rent_one = top_five_masts[0].current_rent
@@ -67,7 +69,7 @@ class TestApp(unittest.TestCase):
         lease_years = 25
 
         #exercise
-        filtered_list = app.filter_by_lease_years()
+        filtered_list = masts.filter_by_lease_years()
         filtered_list_length = len(filtered_list)
 
         #test 
@@ -84,9 +86,9 @@ class TestApp(unittest.TestCase):
 
         #exercise
         #generate list 
-        app.filter_by_lease_years()
+        #app.filter_by_lease_years()
         #calculate total
-        result = app.caluculate_total_rent()
+        result = masts.calculate_rent_total()
 
         #test
         self.assertEqual(result, total)
@@ -102,7 +104,7 @@ class TestApp(unittest.TestCase):
         vodafone_count = 1
 
         #exercise 
-        result = app.get_tenant_count()    
+        result = masts.get_masts_by_tenant()    
        
         cornerstone_count_result = result[cornerstone_key]
         everything_anywhere_result = result[everything_anywhere_key]
@@ -125,7 +127,7 @@ class TestApp(unittest.TestCase):
         last_lease_start_date = "21 08 2007"
 
         #exercise 
-        result = app.get_masts_by_lease_range()
+        result = masts.get_masts_by_lease_range()
         result_length = len(result)
         result_first_lease_start_date = result[0].lease_start
         result_last_lease_start_date = result[4].lease_start
