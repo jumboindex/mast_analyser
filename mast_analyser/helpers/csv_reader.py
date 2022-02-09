@@ -1,6 +1,6 @@
 import csv
 import os
-from veiws.mast_constructor import Mast
+from mast_analyser.veiws.mast_constructor import Mast
 
 """
 Read csv file relative to current directory and returns CSV class, 

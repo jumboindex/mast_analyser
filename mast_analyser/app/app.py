@@ -1,5 +1,5 @@
-from helpers.csv_reader import load_csv
-from veiws.masts import Masts
+from mast_analyser.helpers.csv_reader import load_csv
+from mast_analyser.veiws.masts import Masts
 from pprint import pprint
 
 file = load_csv()
